@@ -22,13 +22,16 @@ cd /opt/homebrew/bin
 echo "Installing awscli, python"
 brew install --force awscli python 
 brew upgrade --force awscli python 
-echo "Install firefox, sublime text, cyberduck, vscode, docker"
+echo "Installing firefox, sublime text, cyberduck, vscode, docker"
 brew install --cask --force firefox sublime-text postman cyberduck visual-studio-code docker-desktop
 clear
 
 brew doctor
 
 clear
+# WE ARE USING NVM INSTEAD OF INSTALLING NODE THROUGH HOMEBREW BECAUSE
+# 1. NODE GETS A NEW LTS VERSION EVERY YEAR
+# 2. YOU DON'T HAVE TO COMPILE NODE FROM SOURCE WHEN YOUR MACOS VERSION IS UNSUPPORTED BY HOMEBREW
 echo "Installing nvm"
 # install nvm without touching .zshrc
 bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash'
