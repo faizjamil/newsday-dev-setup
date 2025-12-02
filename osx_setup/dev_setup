@@ -36,10 +36,12 @@ echo "nvm installed"
 cp default-packages ~/.nvm/default-packages
 echo "Installing latest node.js LTS version"
 cd ~/.nvm
+echo "yarn" >> default-packages
 nvm install --lts
 echo "Node.js LTS and yarn are installed"
 
-echo "copying .npmrc to silence npm updates"
-cp .npmrc ~/.npmrc
+echo "config npm to silence npm update notifier"
+cd ~
+echo "update-notifier=false" >> .npmrc
 echo "npm configured"
 echo "Install complete, restart your shell and/or system!"
