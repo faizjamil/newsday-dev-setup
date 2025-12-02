@@ -35,7 +35,6 @@ clear
 echo "Installing nvm"
 bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash'
 echo "nvm installed"
-cp default-packages ~/.nvm/default-packages
 echo "Installing latest node.js LTS version"
 echo "yarn" >> ~/.nvm/default-packages
 nvm install --lts
