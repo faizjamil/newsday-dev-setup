@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 ## end setup on fail
 set -e
@@ -6,33 +6,40 @@ set -e
 echo "Installing Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-if [[ "$(uname -m)" == "arm64" ]]; then
-    echo "Arm64 detected, adding homebrew to path"
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.profile
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-    source ~/.profile
-fi
+# if [[ "$(uname -m)" == "arm64" ]]; then
+#     echo "Arm64 detected, adding homebrew to path"
+#     echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.profile
+#     eval "$(/opt/homebrew/bin/brew shellenv)"
+#     source ~/.profile
+# fi
+
+echo "Installing Oh My ZSH"
+OVERWRITE_CONFIRMATION="no"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 clear
-
-echo "Installing awscli, nodejs, python, cask"
-brew install --force awscli node@20 python cask
-brew upgrade --force awscli node@20 python cask
-echo 'export PATH=/usr/local/opt/node@20/bin:$PATH' >> ~/.zprofile
-source ~/.zprofile
-
-clear
-echo "Installing yarn"
-sudo npm i -g yarn
-
-echo "Install mysqlworkbench, firefox, sublime text, cyberduck, vscode, docker"
-brew install --cask --force mysqlworkbench firefox sublime-text postman cyberduck visual-studio-code docker
+cd /opt/homebrew/bin
+echo "Installing awscli, python"
+brew install --force awscli python 
+brew upgrade --force awscli python 
+echo "Install firefox, sublime text, cyberduck, vscode, docker"
+brew install --cask --force firefox sublime-text postman cyberduck visual-studio-code docker-desktop
 clear
 
 brew doctor
 
-echo "Installing Oh My ZSH"
-curl -L http://install.ohmyz.sh | sh
 clear
+echo "Installing nvm"
+# install nvm without touching .zshrc
+bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash'
+echo "nvm installed"
+cp default-packages ~/.nvm/default-packages
+echo "Installing latest node.js LTS version"
+cd ~/.nvm
+nvm install --lts
+echo "Node.js LTS and yarn are installed"
 
-echo "Install complete!"
+echo "copying .npmrc to silence npm updates"
+cp .npmrc ~/.npmrc
+echo "npm configured"
+echo "Install complete, restart your shell and/or system!"
