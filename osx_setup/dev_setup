@@ -21,6 +21,7 @@ fi
 echo "Homebrew installed and PATH configured"
 echo "Installing awscli, git, python"
 brew install --force awscli git python 
+# i don't know why TC put this upgrade line in, but i'll keep it here just in case
 brew upgrade --force awscli git python 
 echo "Installing mysqlworkbench, firefox, google-chrome, slack, studio-3t-community, postman, cyberduck, vscode, docker, zoom"
 brew install --cask --force mysqlworkbench firefox google-chrome slack studio-3t-community postman cyberduck visual-studio-code docker-desktop zoom
@@ -35,7 +36,7 @@ clear
 echo "Installing nvm"
 bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash'
 echo "nvm installed"
-echo "Installing latest node.js LTS version"
+echo "Installing latest node.js LTS version and yarn"
 echo "yarn" >> ~/.nvm/default-packages
 nvm install --lts
 echo "Node.js LTS and yarn are installed"
