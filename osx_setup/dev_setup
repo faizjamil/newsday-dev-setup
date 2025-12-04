@@ -22,8 +22,8 @@ echo "Homebrew installed and PATH configured"
 echo "Installing awscli, python"
 brew install --force awscli python 
 brew upgrade --force awscli python 
-echo "Installing firefox, sublime text, cyberduck, vscode, docker"
-brew install --cask --force firefox sublime-text postman cyberduck visual-studio-code docker-desktop
+echo "Installing mysqlworkbench, firefox, sublime text, postman, cyberduck, vscode, docker"
+brew install --cask --force mysqlworkbench firefox sublime-text postman cyberduck visual-studio-code docker-desktop
 clear
 
 brew doctor
