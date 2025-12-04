@@ -19,11 +19,11 @@ if [[ "$(uname -m)" == "arm64" ]]; then
     source ~/.zshrc
 fi
 echo "Homebrew installed and PATH configured"
-echo "Installing awscli, python"
-brew install --force awscli python 
-brew upgrade --force awscli python 
-echo "Installing mysqlworkbench, firefox, sublime text, postman, cyberduck, vscode, docker"
-brew install --cask --force mysqlworkbench firefox sublime-text postman cyberduck visual-studio-code docker-desktop
+echo "Installing awscli, git, python"
+brew install --force awscli git python 
+brew upgrade --force awscli git python 
+echo "Installing mysqlworkbench, firefox, google-chrome, slack, studio-3t-community, postman, cyberduck, vscode, docker, zoom"
+brew install --cask --force mysqlworkbench firefox google-chrome slack studio-3t-community postman cyberduck visual-studio-code docker-desktop zoom
 clear
 
 brew doctor
