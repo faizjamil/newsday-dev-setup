@@ -3,6 +3,9 @@
 ## end setup on fail
 set -e
 
+echo "Installing Xcode Command Line Tools"
+xcode-select --install 
+echo "Xcode Command Line Tools installed"
 echo "Installing Oh My ZSH"
 OVERWRITE_CONFIRMATION="no"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -19,10 +22,10 @@ if [[ "$(uname -m)" == "arm64" ]]; then
     source ~/.zshrc
 fi
 echo "Homebrew installed and PATH configured"
-echo "Installing awscli, git, python"
-brew install --force awscli git python 
+echo "Installing awscli, python"
+brew install --force awscli python 
 # i don't know why TC put this upgrade line in, but i'll keep it here just in case
-brew upgrade --force awscli git python 
+brew upgrade --force awscli python 
 echo "Installing mysqlworkbench, firefox, google-chrome, slack, studio-3t-community, postman, cyberduck, vscode, docker, zoom"
 brew install --cask --force mysqlworkbench firefox google-chrome slack studio-3t-community postman cyberduck visual-studio-code docker-desktop zoom
 clear
