@@ -1,11 +1,8 @@
 #!/bin/zsh
 
 ## end setup on fail
-# set -e
+set -e
 
-# echo "Installing Xcode Command Line Tools"
-# xcode-select --install 
-# echo "Xcode Command Line Tools installed"
 echo "Installing Oh My ZSH"
 OVERWRITE_CONFIRMATION="no"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
