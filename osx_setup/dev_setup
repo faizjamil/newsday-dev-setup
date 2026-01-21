@@ -23,7 +23,7 @@ echo "Installing awscli, python"
 brew install --force awscli python 
 # i don't know why TC put this upgrade line in, but i'll keep it here just in case
 brew upgrade --force awscli python 
-echo "Installing mysqlworkbench, firefox, google-chrome, slack, studio-3t-community, postman, cyberduck, vscode, docker, zoom"
+echo "Installing mysqlworkbench, firefox, google-chrome, slack, studio-3t-community, postman, cyberduck, visual-studio-code, docker-desktop, zoom"
 brew install --cask --force mysqlworkbench firefox google-chrome slack studio-3t-community postman cyberduck visual-studio-code docker-desktop zoom
 clear
 
